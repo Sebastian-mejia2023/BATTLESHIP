@@ -15,7 +15,7 @@ public class Player {
 		this.boats = boats;
 	}
 
-	public ArrayList<Boat> geList() {
+	public ArrayList<Boat> getList() {
 		return boats;
 	}
 

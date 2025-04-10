@@ -1,21 +1,23 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Medicalship extends Boat {
-	private byte x;
-	private byte y1;
-	private byte y2;
-	private byte[] values;
+	private byte p1;
+	private byte p2;
+	private byte p3;
+	private ArrayList<Byte> valuesX;
+	private ArrayList<Byte> valuesY;
+	private boolean vertical;
 
-	public Medicalship() {
-		super((byte) 2, " MEDICO ", new byte[2]);
-		this.values = new byte[2];
-		this.x = x;
-		this.y1 = y1;
-		this.y2 = y2;
-
-		for (int i = 0; i < 2; i++) {
-			values[i] = 1;
-		}
+	public Medicalship(byte size, String name) {
+		super(size, name);
+		this.p1 = p1;
+		this.p2 = p2;
+		this.p3 = p3;
+		this.vertical = vertical;
+		this.valuesX = new ArrayList<Byte>();
+		this.valuesY = new ArrayList<Byte>();
 
 	}
 
@@ -31,23 +33,23 @@ public class Medicalship extends Boat {
 		return super.getSize();
 	}
 
-	@Override
-	public boolean isSunken() {
-		// TODO Auto-generated method stub
-		return super.isSunken();
+	/* cambiar metodo addboat al metodo abstracto */
+
+	public void addboat2(Matrix matrix, byte x1, byte x2, byte y1, byte y2) {
+
+		matrix.addBoat1(x1, y2);
+		matrix.addBoat1(x1, y1);
+		valuesX.add(x1);
+		valuesX.add(x2);
+		valuesY.add(y1);
+		valuesY.add(y2);
+
+		matrix.getMatrix();
+
 	}
 
 	@Override
 	public void Addboat1(Matrix matrix, byte x, byte y) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'Addboat1'");
-
-	}
-
-	public void addboat2(Matrix matrix, byte x, byte y1, byte y2) {
-		matrix.addBoat1(x, y1);
-		matrix.addBoat1(x, y2);
-		matrix.getMatrix();
 
 	}
 
